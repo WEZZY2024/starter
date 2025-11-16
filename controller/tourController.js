@@ -1,26 +1,5 @@
-// const fs =require('fs')
-// const tours =JSON.parse( fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`))
 const Tour = require('./../models/tourModels')
 const APIFeatures  = require('../utils/apiFeatures')
-// exports.checkID = (req,res,next,val) =>{
-//          if(req.params.id * 1 > tours.length){
-//         return res.status(404).json({
-//             status : " fail",
-//             message : "Invalid id"
-//         })
-//     }
-//     next(); 
-// }
-// exports.checkBody = (req,res,next) => {
-//     if(!req.body.name || !req.body.price){
-//         return console.log(req.query); res.status(404).json({
-//             status: "fail",
-//             message : "Missing name or price"
-//         })
-//     }
-//     next();
-// }
-
 exports.aliasTopTours = (req,res,next)=> {
     req.query.limit = '5';
     req.query.fields = 'name, price , ratingsAverage,summary,difficulty';
