@@ -14,6 +14,14 @@ app.get('/home',(req,res) =>{
 
 
 const PORT = process.env.PORT;
-app.listen(PORT,() =>{
+const server = app.listen(PORT,() =>{
     console.log(`your server is running http://${localHost}:${PORT}`)
 });
+
+process.on('unhandledRejection', err => {
+    console.log(err.name , err.message);
+    console.log('UNHANDLER REJECTION shutting down....')
+    server.close(() => {
+        process.exit(1);
+    })
+})
