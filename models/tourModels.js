@@ -3,17 +3,17 @@ const mongoose = require('mongoose');
 const tourSchema = new mongoose.Schema({
     name : {
         type : String,
-        required : [true , 'A tour must have a name'],
+        // required : [true , 'A tour must have a name'],
         unique : true,
         trim: true,
         maxLength : [40 , ' A tour must have less or equal then 40 characters'],
         minLength : [10 , 'A tour name must have more or equal than characters']
     },
     slug : String,
-    durations : {
-        type : Number,
-        required : [true, 'A tour must have a duration']
-    },
+    // durations : {
+    //     type : Number,
+    //     // required : [true, 'A tour must have a duration']
+    // },
     maxGroupSize : {
         type : Number,
         required : [true , 'A tour must have a group size']
