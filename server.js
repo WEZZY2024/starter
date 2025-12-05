@@ -1,6 +1,12 @@
 const dotenv = require('dotenv')
 dotenv.config('./.env')
 const mongoose = require('mongoose')
+
+process.on('uncaughtException', err => {
+    console.log(err.name , err.message);
+    console.log('UNCAUGHT EXCEPTION shutting down....')
+     process.exit(1);
+})
 const app = require('./app')
 const localHost = `127.0.0.1`;
 const DB = process.env.DATABASE 
@@ -25,3 +31,4 @@ process.on('unhandledRejection', err => {
         process.exit(1);
     })
 })
+
