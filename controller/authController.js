@@ -1,7 +1,10 @@
+
 const jwt = require('jsonwebtoken')
 const User = require('./../models/userModel');
 const catchAsync = require('./../utils/catchAsync')
 
+const JWT_SECRET = 'my-name-is-wezzy-ngulube-this-is-my-code';
+const JWT_EXPIRES_IN ='90d ';
 
 exports.signup = catchAsync( async(req ,res ,next) => {
     // const newUser = await User.create(req.body);
@@ -24,3 +27,14 @@ exports.signup = catchAsync( async(req ,res ,next) => {
         }
     });
 });
+
+exports.login = (req,res,next) => {
+    const {email , password } = req.body;
+
+    // 1) check if email and password exist
+
+    // 2) check if user exist && password is correct
+
+    //
+
+}
